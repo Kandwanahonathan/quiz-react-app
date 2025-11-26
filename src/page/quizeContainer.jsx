@@ -3,6 +3,8 @@ import React,{useState} from "react";
 import ProgressBar from "./progress";
 import { useNavigate } from "react-router-dom";
 import Home from "./home";
+import Lottie from "lottie-react";
+import trafficAnimation from "../assets/traffic-animation.json"
 function Question() {
     
   const navigate = useNavigate();
@@ -64,7 +66,7 @@ function Question() {
                         <div className="card-body">
                             <button className="btn btn-primary" onClick={handleBack}> ← Back</button>
                             <p className="text-center fw-bold mb-1">
-                                {currentIndex +1 / questions.length}
+                                {currentIndex +1} / {questions.length}
                             </p>
                             <ProgressBar current={currentIndex +1} total={questions.length}/>
                         <h3 className="card-title text-center  text-primary ">{q.question}</h3>
@@ -136,7 +138,7 @@ function Question() {
                         </div>
                     )
                 }
-            
+            <Lottie animationData={trafficAnimation} loop={true} style={{width:250}}/>
         </div>
     )
 }
