@@ -48,11 +48,15 @@ function Question() {
 
     return(
         <div className="container-fluid d-flex  align-items-center justify-content-center position-relative vh-100">
-            <ProgressBar current={currentIndex +1} total={questions.length}/>
+            
            {q &&(
                 
                     <div className="card my-5 shadow-sm w-75">
                         <div className="card-body">
+                            <p className="text-center fw-bold mb-1">
+                                {currentIndex +1 / questions.length}
+                            </p>
+                            <ProgressBar current={currentIndex +1} total={questions.length}/>
                         <h3 className="card-title text-center  text-primary ">{q.question}</h3>
                         <div className="d-flex flex-column col-md-12">
                         {

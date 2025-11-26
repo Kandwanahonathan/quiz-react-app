@@ -1,6 +1,6 @@
 import React from "react";
-function ProgressBar({current,total}) {
-    const width= (current/total)% 100;
+const ProgressBar=({current,total})=> {
+    const percentage= (current/total)* 100;
     return(
         <div style={
             {
@@ -12,7 +12,7 @@ function ProgressBar({current,total}) {
             }
         }>
             <div style={{
-                width:`${width}`,
+                width:`${percentage}%`,
                 height:"100%",
                 background:"#4caf50",
                 borderRadius:"5px",
