@@ -1,5 +1,6 @@
 import { Collapse } from "bootstrap/dist/js/bootstrap.bundle.min";
 import React,{useState} from "react";
+import ProgressBar from "./progress";
 function Question() {
     const questions=[
         {
@@ -37,11 +38,18 @@ function Question() {
             setScore((prev)=>prev +1)
         }
     }
+    const handleRetry=()=>{
+        setSelected(Array(questions.length).fill(""))
+        setStatus(Array(questions.length).fill(""))
+        setCurrentIndex(0)
+        setScore(0)
+    }
     const q=currentIndex< questions.length? questions[currentIndex]:null;
 
     return(
         <div className="container-fluid d-flex  align-items-center justify-content-center position-relative vh-100">
-            
+            <ProgressBar current={currentIndex +1} total={questions.length}/>
+           {q &&(
                 
                     <div className="card my-5 shadow-sm w-75">
                         <div className="card-body">
@@ -86,14 +94,34 @@ function Question() {
                         </div>
                         </div>
                     </div>
-                <div className="mt-4">
-                    {currentIndex ===questions.length ?(
-                        <div className="mt-4">
-                            <h2>Final Score</h2>
-                            <h4>Your Final Score :{score}/{questions.length}</h4>
+                )}
+                {
+                    currentIndex ===questions.length -1 && selected[currentIndex] !== "" && (
+                        <div className="text-center mt-4">
+                            <div className="card-shadow p-4 shadow-sm" style={{
+                                borderLeft:"6px solid rgb(53, 94, 53)"
+                            }}>
+                                <h2 className="fw-bold">🎉Quiz Completed!!!!</h2>
+                                <h4 className="mt-3 fw-bold">Score:
+                                    <span className="text-primary fw-bold">{score}/{questions.length}</span>
+                                </h4>
+                                <p className="mt-5 fw-bold fs-5">
+                                    {score === questions.length ? 
+                                 "Perfect! You're ready for the exam! 🚗💨"  :  score >questions.length /2 ?
+                                  "Good job! Keep practicing! 👍":"Keep trying, you’ll improve! 💪"
+                                }
+                                </p>
+
+                                <button className="btn btn-warning px-4 py-4 fs-5"
+                                onClick={handleRetry}
+                                >
+                                     🔄 Retry Quiz
+                                </button>
+
+                            </div>
                         </div>
-                    ):<></>}
-                </div>
+                    )
+                }
             
         </div>
     )
