@@ -1,7 +1,15 @@
 import { Collapse } from "bootstrap/dist/js/bootstrap.bundle.min";
 import React,{useState} from "react";
 import ProgressBar from "./progress";
+import { useNavigate } from "react-router-dom";
+import Home from "./home";
 function Question() {
+    
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate("/"); 
+  }
     const questions=[
         {
             question:"what is the main puporse of road signs",
@@ -48,11 +56,13 @@ function Question() {
 
     return(
         <div className="container-fluid d-flex  align-items-center justify-content-center position-relative vh-100">
+
             
            {q &&(
                 
                     <div className="card my-5 shadow-sm w-75">
                         <div className="card-body">
+                            <button className="btn btn-primary" onClick={handleBack}> ← Back</button>
                             <p className="text-center fw-bold mb-1">
                                 {currentIndex +1 / questions.length}
                             </p>
