@@ -10,9 +10,11 @@ function Home() {
         navigate("/Question")
     }
     return(
-        <div className="container-fluid vh-100 justify-content-center align-items-center d-flex
+        <div 
+        
+        className="container-fluid vh-100 justify-content-center align-items-center d-flex
         flex-column bg-light
-        ">
+        " >
             <h1 className="fw-bold text-primary mb-3">Profesional quize license</h1>
             <p className="fs-4 mb-3 text-center">
                 Test your knowledge and prepare you for driving exam
