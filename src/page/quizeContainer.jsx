@@ -174,6 +174,46 @@ function Question() {
                 ],
                 answer:"(c) 1",
             },
+            {
+                question:"17. Amatara maremare y’ikinyabiziga agomba kuzimwa mu bihe bikurikira:",
+                options:[
+                    "a) Iyo umuhanda umurikiye umuyobozi abasha kureba muri metero 20",
+                    "(b) Iyo ikinyabiziga kigiye kubisikana n’ibindi",
+                    "c)	Iyo ari mu nsisiro",
+                    "d)	Ibisubizo byose ni ukuri"
+                ],
+                answer:"(b) Iyo ikinyabiziga kigiye kubisikana n’ibindi",
+            },
+            {
+                question:"18. Ikinyabiziga ntigishobora kugira amatara arenga abiri y’ubwoko bumwe keretse kubyerekeye amatara akurikira:",
+                options:[
+                    "a)	Itara ndangamubyimba",
+                    "b)	Itara ryerekana icyerekezo",
+                    "c)	Itara ndangaburumbarare",
+                    "d) Ibisubizo byose ni ukuri"
+                ],
+                answer:"d) Ibisubizo byose ni ukuri",
+            },
+            {
+                question:"19. Ubugari bwa romoruki ikuruwe n’igare cyangwa velomoteri ntiburenza ibipimo bikurikira:",
+                options:[
+                    "a)	cm25",
+                    "b)	cm125",
+                    "c)	cm45",
+                    "(d) Nta gisubizo cy’ukuri kirimo"
+                ],
+                answer:"(d) Nta gisubizo cy’ukuri kirimo",
+            },
+            {
+                question:"20. Ibinyabiziga bikoreshwa nka tagisi, bitegerereza abantu mu nzira nyabagendwa, bishobora gushyirwaho itara ryerekana ko ikinyabiziga kitakodeshejwe. Iryo tara rishyirwaho ku buryo bukurikira:",
+                options:[
+                    "(a) Ni itara ry’icyatsi rishyirwa imbere ku kinyabiziga",
+                    "b)	Ni itara ry’icyatsi rishyirwa ibumoso",
+                    "c)	Ni itara ry’umuhondo rishyirwa inyuma",
+                    "d)	A na C ni ibisubizo by’ukuri"
+                ],
+                answer:"(a) Ni itara ry’icyatsi rishyirwa imbere ku kinyabiziga",
+            },
 
     ];
     const [selected,setSelected]=useState(Array(questions.length).fill(""))
@@ -206,21 +246,21 @@ function Question() {
             
            {q &&(
                 
-                    <div className="card my-5 shadow-sm w-75">
+                    <div className="card my-5 shadow-lg w-75">
                         <div className="card-body">
                             <button className="btn btn-primary" onClick={handleBack}> ← Back</button>
                             <p className="text-center fw-bold mb-1" style={{fontWeight:500}}>
                                 {currentIndex +1} / {questions.length}
                             </p>
                             <ProgressBar current={currentIndex +1} total={questions.length}/>
-                        <h3 className="card-title text-center  text-primary ">{q.question}</h3>
+                        <h3 className="card-title text-center  text-primary fw-bold fw-600 ">{q.question}</h3>
                         <div className="d-flex flex-column col-md-12">
                         {
                             q.options.map((opt,idx)=>(
                                 <button key={idx}
                                 className={`btn  px-3 m-3  
                                     ${selected[currentIndex]==opt?
-                                    (status[currentIndex] === "correct"? "btn-success":"btn-danger"):"btn-secondary"
+                                    (status[currentIndex] === "correct"? "btn-success":"btn-danger"):"btn-dark"
                                 }`}
                                 disabled={selected[currentIndex] !==""}
                                 onClick={()=>handleClick(currentIndex,opt,q.answer)}
