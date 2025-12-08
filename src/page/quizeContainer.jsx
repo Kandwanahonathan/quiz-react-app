@@ -301,11 +301,11 @@ function Question() {
                             <div className="card-shadow p-4 shadow-sm" style={{
                                 borderLeft:"6px solid rgb(53, 94, 53)"
                             }}>
-                                <h2 className="fw-bold">🎉Quiz Completed!!!!</h2>
+                                <h2 className="fw-bold text-light">🎉Quiz Completed!!!!</h2>
                                 <h4 className="mt-3 fw-bold">Score:
                                     <span className="text-primary fw-bold">{score}/{questions.length}</span>
                                 </h4>
-                                <p className="mt-5 fw-bold fs-5">
+                                <p className="mt-5 fw-bold fs-5 text-light">
                                     {score === questions.length ? 
                                  "Perfect! You're ready for the exam! 🚗💨"  :  score >questions.length /2 ?
                                   "Good job! Keep practicing! 👍":"Keep trying, you’ll improve! 💪"
